@@ -5,6 +5,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { cn } from "@/lib/utils";
 import { ModalProvider } from "../components/providers/modal-provider";
+import { SocketProvider } from "@/components/providers/socket-providers";
+import { QueryProvider } from "@/components/providers/query-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -29,8 +31,10 @@ export default function RootLayout({
           storageKey="discord-theme"
         >
           <ClerkProvider>
-            <ModalProvider />
-            {children}
+            <ModalProvider />{" "}
+            <SocketProvider>
+              <QueryProvider>{children}</QueryProvider>
+            </SocketProvider>
           </ClerkProvider>
         </ThemeProvider>
       </body>
