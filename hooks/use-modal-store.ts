@@ -13,11 +13,11 @@ export type ModalType =
   | "messageFile";
 
 interface ModelData {
-  apiUrl?: string;
+  apiUrl?: string | any;
   server?: Server;
   channel?: Channel;
-  channelType: ChannelType;
-  query?: Record<string, any>;
+  channelType?: ChannelType;
+  query?: Record<string, any> | any;
 }
 
 interface ModalStore {
